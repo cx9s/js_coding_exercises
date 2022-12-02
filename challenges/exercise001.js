@@ -18,7 +18,8 @@ export function addVAT(originalPrice, vatRate) {
   if (vatRate === undefined) throw new Error("vatRate is required");
   // Your code here!
   const finalPrice = originalPrice * (1 + vatRate / 100);
-  return Number.isInteger(finalPrice) ? finalPrice : +finalPrice.toFixed(2);
+  // '+' remove unnecessary ‘0’ at the end of number, e.g. 3.30 -> 3.3
+  return +finalPrice.toFixed(2);
 }
 
 export function getSalePrice(originalPrice, reduction) {
@@ -26,7 +27,7 @@ export function getSalePrice(originalPrice, reduction) {
   if (reduction === undefined) throw new Error("reduction is required");
   // Your code here!
   const finalPrice = originalPrice * (1 - reduction / 100);
-  return Number.isInteger(finalPrice) ? finalPrice : +finalPrice.toFixed(2);
+  return +finalPrice.toFixed(2);
 }
 
 export function getMiddleCharacter(str) {
