@@ -20,7 +20,7 @@ NB For these challenges you may also find the [Solving SquareNums 3 Ways Video](
 
 ## Cheatsheet
 
-#### For Loop
+### For Loop
 
 - Loop over arrays, or characters in a string
 - You have full control over the items you access - you can start your index positions at 1 or 3 or 0, get every other item, etc.

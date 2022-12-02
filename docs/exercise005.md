@@ -16,7 +16,7 @@ But as an extra challenge we want to make sure you're used to the ES6 arrow func
 
 5. If you want to read more about new features added to the JavaScript language in the latest major version, ES6, [this online book](http://exploringjs.com/es6/) is well worth a look. 👀
 
-# ➡️ ES6 Arrow Functions ⬅️
+## ➡️ ES6 Arrow Functions ⬅️
 
 ES6 arrow functions provide an alternative syntax for creating functions. In ES6, these two snippets of code are more or less equivalent:
 
@@ -40,7 +40,7 @@ There are small differences between an arrow function and a normal function. For
 
 There also some differences around the keyword `this` too, which we don't need to go into at the moment.
 
-#### Inplicit Return
+### Inplicit Return
 
 Arrow functions allow us to shorten the syntax and do a one-line return statement, omiting the `return` keyword. This is a nice way of shortening very simple functions. For example:
 
