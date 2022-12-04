@@ -1,9 +1,18 @@
 import {
+  sumDigits,
   createRange,
   getScreentimeAlertList,
   hexToRGB,
   findWinner,
 } from "../challenges/exercise007";
+
+describe("sumDigits", () => {
+  test("returns the sum of all digits in the input number.", () => {
+    expect(sumDigits(123)).toBe(6);
+    expect(sumDigits(-3.14159)).toBe(23);
+    expect(sumDigits(0)).toBe(0);
+  });
+});
 
 describe("createRange", () => {
   test("return a range of numbers as an array, with received the start, end and the step. Step is the gap between numbers in the range.", () => {

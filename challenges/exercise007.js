@@ -4,12 +4,10 @@
  */
 export const sumDigits = (n) => {
   if (n === undefined) throw new Error("n is required");
-  let sum = 0;
   // .replace() remove '-' and '.' in a negative or float number
-  const str = n.toString().replace(/\D/g, "");
-  for (const digit of str) {
-    sum += +digit;
-  }
+  let sum = 0;
+  const digitsArray = [...n.toString().replace(/\D/g, "")];
+  sum = digitsArray.reduce((a, b) => +a + +b, 0);
   return sum;
 };
 
