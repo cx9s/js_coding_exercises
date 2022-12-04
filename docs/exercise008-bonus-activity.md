@@ -14,7 +14,7 @@ You have covered so many different JavaScript concepts and skills in a very shor
 
 In these exercises we would like you to try some of the very latest JavaScript and have a go with Optional Chaining!
 
-# Task 1: The Spread Operator
+## Task 1: The Spread Operator
 
 The Spread Operator or 'Spread Syntax' is a handy feature where you can iterate through iterable data (like arrays, strings or objects) simply using '...' syntax. This is especially useful when working with lists as well as iterating through large amounts of data quickly.
 
@@ -24,7 +24,7 @@ The Spread Operator or 'Spread Syntax' is a handy feature where you can iterate 
 
 You may have solved it using this method already - in which case, great job! 🙌 Is there anywhere else in your code where this method might be useful?
 
-# Task 2: Optional Chaining
+## Task 2: Optional Chaining
 
 When working with objects in JavaScript we often want to access certain properties of an object to, for example, display different or conditional information on a webpage.
 
@@ -32,7 +32,7 @@ However, sometimes there are situations where we don't know whether certain data
 
 For example, if we have some users, and we try to access their postcodes but - oh oh! They haven't provided addresses, JavaScript throws an error.
 
-```
+```js
 let user = {}; // a user without "address" property
 
 alert(user.address.postcode); // Throws Error!
@@ -42,15 +42,15 @@ Note: if you simply tried to access user.address and the user doesn't have an ad
 
 There are many ways of getting around this such as conditionally checking a property exists before trying to access it, such as:
 
-```
-alert(user.address !== undefined ? user.address.postcode : null)
+```js
+alert(user.address !== undefined ? user.address.postcode : null);
 ```
 
 These workarounds can get messy and confusing though, especially if you have something deeply nested ⫸
 
 A more elegant solution is ✨Optional Chaining✨:
 
-```
+```js
 alert(user?.address?.postcode); // undefined (no error)
 ```
 
@@ -58,7 +58,7 @@ The above code checks user exists (is not null or undefined). If user _does_ exi
 
 This method can also be used to check for functions or properties, where a function or property may not exist. For example:
 
-```
+```js
 let catUser = {
     miceEaten: 5,
   sayMeow() {
