@@ -12,7 +12,7 @@ export const count1sand0s = (str) => {
 
 export const reverseNumber = (n) => {
   if (n === undefined) throw new Error("n is required");
-  return parseFloat(n.toString().split("").reverse().join("")) * Math.sign(n);
+  return parseFloat([...n.toString()].reverse().join("")) * Math.sign(n);
 };
 
 export const sumArrays = (arrs) => {
@@ -38,10 +38,8 @@ export const arrShift = (arr) => {
   if (arr.length > 1) {
     const firstNum = arr.shift();
     const lastNum = arr.pop();
-    arr.unshift(lastNum);
-    arr.push(firstNum);
-  }
-  return arr;
+    return [lastNum, ...arr, firstNum];
+  } else return arr;
 };
 
 export const findNeedle = (haystack, searchTerm) => {
