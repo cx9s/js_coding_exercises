@@ -4,6 +4,13 @@
  */
 export const sumDigits = (n) => {
   if (n === undefined) throw new Error("n is required");
+  let sum = 0;
+  // .replace() remove '-' and '.' in a negative or float number
+  const str = n.toString().replace(/\D/g, "");
+  for (const digit of str) {
+    sum += +digit;
+  }
+  return sum;
 };
 
 /**
@@ -14,13 +21,14 @@ export const sumDigits = (n) => {
  * @param {Number} end
  * @param {Number} step
  */
-export const createRange = (start, end, step) => {
+export const createRange = (start, end, step = 1) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
-  if (step === undefined)
-    console.log(
-      "FYI: Optional step parameter not provided. Remove this check once you've handled the optional step!"
-    );
+  const rangeArray = [];
+  for (let i = start; i <= end; i = i + step) {
+    rangeArray.push(i);
+  }
+  return rangeArray;
 };
 
 /**
@@ -55,6 +63,19 @@ export const createRange = (start, end, step) => {
 export const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  // a array has users who match more than 100 mins on the given date.
+  const selectedUsers = users.filter((user) => {
+    let totalTime = 0;
+    user.screenTime.forEach((record) => {
+      if (record.date === date) {
+        for (const appTime in record.usage) {
+          totalTime += record.usage[appTime];
+        }
+      }
+    });
+    return totalTime > 100 ? true : false;
+  });
+  return selectedUsers.map((user) => user.username);
 };
 
 /**
@@ -69,6 +90,10 @@ export const getScreentimeAlertList = (users, date) => {
  */
 export const hexToRGB = (hexStr) => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  const r = parseInt(hexStr.slice(1, 3), 16);
+  const g = parseInt(hexStr.slice(3, 5), 16);
+  const b = parseInt(hexStr.slice(5, 7), 16);
+  return `rgb(${r},${g},${b})`;
 };
 
 /**
@@ -83,4 +108,25 @@ export const hexToRGB = (hexStr) => {
  */
 export const findWinner = (board) => {
   if (board === undefined) throw new Error("board is required");
+  const winCode = ["012", "345", "678", "036", "147", "258", "048", "246"];
+
+  let playerX = "";
+  let player0 = "";
+  // the positions of board is from 0 - 9. Find 'X' positions as playerX, and '0' positions as player0,
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      let position = 3 * i + j;
+      if (board[i][j] === "X") {
+        playerX += position;
+      } else if (board[i][j] === "0") {
+        player0 += position;
+      }
+    }
+  }
+  const winner = winCode.includes(playerX)
+    ? "X"
+    : winCode.includes(player0)
+    ? "0"
+    : null;
+  return winner;
 };
