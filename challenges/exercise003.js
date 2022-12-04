@@ -12,8 +12,7 @@ export function camelCaseWords(words) {
     index === 0
       ? (result += element)
       : (result +=
-          element.substring(0, 1).toUpperCase() +
-          element.substring(1, element.length));
+          element[0].toUpperCase() + element.substring(1, element.length));
   });
   return result;
 }
