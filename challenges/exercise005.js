@@ -1,26 +1,22 @@
 export const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
   let i = nums.indexOf(n);
   return i > -1 && i < nums.length - 1 ? nums[i + 1] : null;
 };
 
 export const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
   return { 1: str.split("1").length - 1, 0: str.split("0").length - 1 };
 };
 
 export const reverseNumber = (n) => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
   return parseFloat(n.toString().split("").reverse().join("")) * Math.sign(n);
 };
 
 export const sumArrays = (arrs) => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
   // limited by input format
   /* return arrs.flat().reduce((a, b) => {
     return a + b;
@@ -39,7 +35,6 @@ export const sumArrays = (arrs) => {
 
 export const arrShift = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
-  // Your code here!
   if (arr.length > 1) {
     const firstNum = arr.shift();
     const lastNum = arr.pop();
@@ -52,7 +47,6 @@ export const arrShift = (arr) => {
 export const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  // Your code here!
   for (const key in haystack) {
     if (
       typeof haystack[key] === "string" &&
@@ -66,7 +60,6 @@ export const findNeedle = (haystack, searchTerm) => {
 
 export const getWordFrequencies = (str) => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
   const wordAndFreq = {};
   // remove all special characters then transfer to lowercase split into an array
   const wordsArray = str
